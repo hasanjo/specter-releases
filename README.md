@@ -1,2 +1,0 @@
-# specter-releases
-Specter CLI
