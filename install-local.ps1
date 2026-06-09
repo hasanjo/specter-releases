@@ -111,7 +111,8 @@ function Write-SpecterProgress([int]$step, [string]$label) {
             $bar += "${Dm}-${R}"
         }
     }
-    $visible = ("  * [$([regex]::Replace($bar, "${Esc}\[[0-9;]*m", ""))] $label").Length
+    # Each bar cell is exactly 1 visible char — no need to strip ANSI sequences.
+    $visible = 5 + $width + 2 + $label.Length   # "  * [" + bar + "] " + label
     $pad     = [Math]::Max(0, $script:LastProgressWidth - $visible)
     [Console]::Write("${Cr}  ${Aq}*${R} [${bar}] $label" + (" " * $pad))
     $script:LastProgressWidth = [Math]::Max($script:LastProgressWidth, $visible)
