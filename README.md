@@ -137,12 +137,12 @@ Found 5 issues  1 critical  ·  2 bugs  ·  2 logic  ·  1 simplify  — validat
 Then, after the validation pass confirms the findings, the full report renders:
 
 ```
-╭─ verdict ────────────────────────────────────────────────╮
+╭─ verdict ─────────────────────────────────────────────────╮
 │  SUSPECT   intent may be off                              │
 │  Implements auth flow but uses deprecated token pattern.  │
 ╰───────────────────────────────────────────────────────────╯
 
-╭─● BUG  CRITICAL  src/Auth/TokenService.cs:88  1/4  (1 to copy) ─╮
+╭─● BUG  CRITICAL  src/Auth/TokenService.cs:88  1/4  (1 to copy) ──╮
 │ RefreshToken not invalidated after use                           │
 │ A used refresh token is never removed from the store, allowing   │
 │ replay attacks indefinitely.                                     │
